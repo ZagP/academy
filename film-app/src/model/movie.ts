@@ -1,8 +1,6 @@
-import { OnInit } from '@angular/core';
 
 
-
-export class Movie implements OnInit {
+export class Movie{
 
     public voteCount: number;
     public id: number;
@@ -40,8 +38,4 @@ export class Movie implements OnInit {
         this.overview = overview;
         this.releaseDate = release_date;
     }
-
-    ngOnInit() {
-    }
-
 }
