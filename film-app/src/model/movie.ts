@@ -1,3 +1,4 @@
+
 export class Movie{
 
     public vote_count: number;
@@ -36,5 +37,4 @@ export class Movie{
         this.overview = overview;
         this.release_date = release_date;
     }
-
 }

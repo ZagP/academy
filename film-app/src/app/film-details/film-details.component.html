@@ -1,4 +1,32 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+                <h1>{{movie.title}} {{movie.releaseDate}}</h1>
+        </div>
+    </div>
+<br>
+    <div class="row">
+        <div class="col-md-5">
+            <img src="https://www.smk-smptintaemas.sch.id/wp-content/uploads/2017/07/645x430-ada-lomba-film-pendek-di-peringatan-hari-museum-1505214.jpg"
+                width="200px" height="100px" alt="..." class="img-thumbnail">
+        </div>
+        <div class="col-md-7">
+            <p>Title: {{movie.title}}</p>
+            <hr>
+            <p>Date: {{movie.releaseDate}}</p>
+            <hr>
+            <p>Language: {{movie.originalLanguage}}</p>
+            <hr>
+            <p>Adult: </p>
+            <hr>
+            <p>Categories: </p>
+            <hr>
+            <p>View: {{movie.popularity}}</p>
+            <hr>
 
-    
+        </div>
+    </div>
 </div>
+
+<h2>Story</h2>
+<p>{{movie.overview}}</p>
