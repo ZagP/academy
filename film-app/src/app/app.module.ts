@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
 import { FormsModule } from '@angular/forms';
+import { FilmDetailsComponent } from './film-details/film-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchMovieComponent
+    SearchMovieComponent,
+    FilmDetailsComponent
   ],
   imports: [
     BrowserModule,
