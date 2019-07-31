@@ -18,7 +18,7 @@ import { FilmDetailsComponent } from './film-details/film-details.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClient
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

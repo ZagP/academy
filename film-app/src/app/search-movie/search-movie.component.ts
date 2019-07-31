@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Movie } from 'src/model/movie';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-search-movie',
@@ -6,10 +8,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-movie.component.css']
 })
 export class SearchMovieComponent implements OnInit {
-
-  constructor() { }
+  moviesArray:Movie[] = [];
+  @Input() searchString:string;
+  results:boolean = false;
+  constructor(private searchService:MovieService) { }
 
   ngOnInit() {
+    
   }
+
+  getSearchResults(){
+    console.log("searchREsults");
+    console.log(this.searchString);
+    this.searchService.searchMovies(this.searchString).subscribe(
+      (result:Movie[])=>{
+        this.moviesArray=result;
+        console.log("result: ",result);
+        console.log("moviesArray: ",this.moviesArray);
+      },
+      (error)=>{
+        console.error("Error",error);
+        alert('error');
+      }
+    );
+    this.results = true;
+  }
+
+
+
 
 }

@@ -1,23 +1,19 @@
-import { OnInit } from '@angular/core';
+export class Movie{
 
-
-
-export class Movie implements OnInit {
-
-    public voteCount: number;
+    public vote_count: number;
     public id: number;
     public video: boolean;
-    public voteAverage: number;
+    public vote_average: number;
     public title: string;
     public popularity: string;
-    public posterPath: string;
-    public originalLanguage: string;
-    public originalTitle: string;
-    public genreIds: Number[] = [];
-    public backdropPath: string;
+    public poster_path: string;
+    public original_language: string;
+    public original_title: string;
+    public genre_ids: Number[] = [];
+    public backdrop_path: string;
     public adult: boolean;
     public overview: string;
-    public releaseDate: string;
+    public release_date: string;
     
     //"vote_count":1,"id":484981,"video":false,"vote_average":1,"title":"String","popularity":1.4,"poster_path":"\/lESbUXiBbCOjSfSkjqz6npcvuHD.jpg","original_language":"en",
     //"original_title":"String","genre_ids":[18],
@@ -25,23 +21,20 @@ export class Movie implements OnInit {
 
     constructor(vote_count: number, id: number, video: boolean, vote_average: number, title: string, popularity: string,
         poster_path: string, original_language: string, original_title: string, genre_ids: Number[], backdrop_path: string, adult: boolean, overview: string, release_date: string) {
-        this.voteCount = vote_count;
+        this.vote_count = vote_count;
         this.id = id;
         this.video = video;
-        this.voteAverage = vote_average;
+        this.vote_average = vote_average;
         this.title = title;
         this.popularity = popularity;
-        this.posterPath = poster_path;
-        this.originalLanguage = original_language;
-        this.originalTitle = original_title;
-        this.genreIds = genre_ids;
-        this.backdropPath = backdrop_path;
+        this.poster_path = poster_path;
+        this.original_language = original_language;
+        this.original_title = original_title;
+        this.genre_ids = genre_ids;
+        this.backdrop_path = backdrop_path;
         this.adult = adult;
         this.overview = overview;
-        this.releaseDate = release_date;
-    }
-
-    ngOnInit() {
+        this.release_date = release_date;
     }
 
 }
