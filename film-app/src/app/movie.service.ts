@@ -9,7 +9,7 @@ import { Movie } from 'src/model/movie';
 export class MovieService {
   movies:Movie;
   language:string;
-  page:number;
+  //page:number;
   adult:boolean;
   region:string;
   year:string;

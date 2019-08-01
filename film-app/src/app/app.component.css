@@ -1,10 +1,13 @@
-.jumbotron {
+
+
+
+/*.jumbotron {
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin-bottom: 0;
     background-color: #fff;
   }
-  @media (min-width: 768px) {
+  /*@media (min-width: 768px) {
     .jumbotron {
       padding-top: 6rem;
       padding-bottom: 6rem;
@@ -26,8 +29,7 @@
   footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    /*position: absolute;
-    bottom: 0;*/
+  
   }
   
   footer p {
@@ -47,4 +49,4 @@
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
-  }
+  }*/

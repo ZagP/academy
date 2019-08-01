@@ -1,13 +1,14 @@
 <div class="row">
     <!-- <div class="col-md-2"></div> -->
-    <div class="col-md-12">
+    <div class="col-md-12 main-search-bar">
+        <h1>Search your movies</h1>
         <form>
             <div class="form-group">
-                <h1>Search your movies</h1>
+
                 <input [(ngModel)]="searchString" type="search" id="search-movie" name="search-movie"
-                    class="form-control mx-sm-3" aria-describedby="Search Movie" placeholder="Search">
+                    class="form-control " aria-describedby="Search Movie" placeholder="Search">
                 <br>
-                <input type="submit" class="btn btn-primary" value="Cerca" (click)="getSearchResults()">
+                <input type="submit" class="btn btn-custom" value="Cerca" (click)="getSearchResults()">
 
             </div>
         </form>
@@ -15,94 +16,28 @@
     <!-- <div class="col-md-2"></div> -->
 </div>
 <div class="row" *ngIf="results">
-    <!-- <ul>
-        <li *ngFor="let movie of moviesArray.results">Titolo: {{movie.title}}</li>
-    </ul> -->
 
-    <div class="col-md-4" *ngFor="let movie of moviesArray.results">
-        <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>{{movie.title}}</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Thumbnail</text>
-            </svg>
-            <div class="card-body">
-                <p class="card-text">{{movie.overview}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">{{movie.vote_average}}</small>
-                </div>
+    <div class="col-md-4 space" *ngFor="let movie of moviesArray.results">
+        <div class="card card-animations" style="width: 18rem;" (click)="getMovieDetails(movie.id)">
+            <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Card image cap">
+            <div class="card-body bg-color-cards">
+                <h4 class="card-title">{{movie.title}}</h4>
+                <p class="card-text">{{movie.overview.substring(0, 80)}} ...</p>
+                <button class="btn btn-custom">Details</button>
             </div>
         </div>
     </div>
-   
-    <!-- <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Thumbnail</text>
-            </svg>
-            <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Thumbnail</text>
-            </svg>
-            <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Thumbnail</text>
-            </svg>
-            <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                </div>
-            </div>
-        </div>
-    </div>
- -->
-    
+
+</div>
+<div class="row" *ngIf="results">
+    <nav>
+        <ul class="pagination">
+            <li></li>
+            <li *ngFor="let num of pagesQnt" class="page-item"><a class="page-link custom-pagination" href="#">{{num}}</a></li>
+            <!-- <li class="page-item"><a class="page-link custom-pagination" href="#">1</a></li>
+            <li class="page-item"><a class="page-link custom-pagination" href="#">2</a></li>
+            <li class="page-item"><a class="page-link custom-pagination" href="#">3</a></li>
+            <li class="page-item"><a class="page-link custom-pagination" href="#">Next</a></li> -->
+        </ul>
+    </nav>
 </div>

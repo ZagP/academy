@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background: #000;
+    color: #fff;
+}
+
+.navbar-bg{
+    background: #ac030b !important;
+    height: 100px;
+}
+.card-animations{
+  transition: .3s all ease-in-out;
+  top: 0;
+  position: relative;
+  cursor: pointer !important;
+}
+
+.card-animations:hover{
+  top: -10px;
+  -webkit-box-shadow: 0 2px 22px -1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 22px -1px rgba(0, 0, 0, 0.3);
+
+}
+
+
+
+
+
+
+.bg-color-cards{
+    background: #ac030b/*#96BBBB*/ !important;
+    }
+    
+.space{
+    margin-bottom: 25px;
+}
+    
+
+.btn-custom{
+    background: #ac030b/*#258EA6*/;
+    color:white;
+}
+
+.main-search-bar{
+    padding:50px;
+}
+
+.custom-pagination{
+    background: #ac030b;
+    color: #fff;
+}
