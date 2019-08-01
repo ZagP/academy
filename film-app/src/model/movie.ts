@@ -15,6 +15,7 @@ export class Movie {
     public adult: boolean;
     public overview: string;
     public release_date: string;
+    public total_pages:number;
     public production_companies: string;
     public genres: string;
     public budget: number;
