@@ -30,7 +30,7 @@ body{
 
 .bg-color-cards{
     background: #ac030b/*#96BBBB*/ !important;
-    }
+}
     
 .space{
     margin-bottom: 25px;
@@ -49,4 +49,7 @@ body{
 .custom-pagination{
     background: #ac030b;
     color: #fff;
+}
+.page-selected{
+    background: #460003 !important;
 }

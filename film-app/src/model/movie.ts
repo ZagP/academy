@@ -15,6 +15,7 @@ export class Movie{
     public adult: boolean;
     public overview: string;
     public release_date: string;
+    public total_pages:number;
     
     //"vote_count":1,"id":484981,"video":false,"vote_average":1,"title":"String","popularity":1.4,"poster_path":"\/lESbUXiBbCOjSfSkjqz6npcvuHD.jpg","original_language":"en",
     //"original_title":"String","genre_ids":[18],

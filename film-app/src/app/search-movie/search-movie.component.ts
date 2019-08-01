@@ -20,12 +20,12 @@ export class SearchMovieComponent implements OnInit {
   }
 
   getSearchResults(){
+    this.page = 1;
     console.log("searchREsults");
     console.log(this.searchString);
     this.searchService.searchMovies(this.searchString).subscribe(
       (result:Movie[])=>{
         this.moviesArray=result;
-        this.pagesQnt = this.moviesArray.total_pages;
         console.log("total-pages: "+this.pagesQnt);
         console.log("result: ",result);
         console.log("moviesArray: ",this.moviesArray);
@@ -38,7 +38,8 @@ export class SearchMovieComponent implements OnInit {
     this.results = true;
   }
 
-  getResultsPage(){
+  getResultsPage(pageSel:number){
+    this.page = pageSel;
     this.searchService.searchMoviesPage(this.searchString, this.page).subscribe(
       (result:Movie[])=>{
         this.moviesArray=result;
@@ -51,6 +52,10 @@ export class SearchMovieComponent implements OnInit {
       }
     );
     this.results = true;
+  }
+
+  arrayOne(n: number): any[] {
+    return Array(n);
   }
 
 

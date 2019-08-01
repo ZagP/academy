@@ -32,12 +32,7 @@
 <div class="row" *ngIf="results">
     <nav>
         <ul class="pagination">
-            <li></li>
-            <li *ngFor="let num of pagesQnt" class="page-item"><a class="page-link custom-pagination" href="#">{{num}}</a></li>
-            <!-- <li class="page-item"><a class="page-link custom-pagination" href="#">1</a></li>
-            <li class="page-item"><a class="page-link custom-pagination" href="#">2</a></li>
-            <li class="page-item"><a class="page-link custom-pagination" href="#">3</a></li>
-            <li class="page-item"><a class="page-link custom-pagination" href="#">Next</a></li> -->
+            <li *ngFor="let num of arrayOne(moviesArray.total_pages);let i = index;" class="page-item" (click)="getResultsPage(i+1)"><a class="page-link custom-pagination" [ngClass]="{'page-selected': page===(i+1)}" >{{i+1}}</a></li>
         </ul>
     </nav>
 </div>

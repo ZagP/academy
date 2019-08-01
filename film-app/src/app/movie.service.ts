@@ -26,7 +26,7 @@ export class MovieService {
   }
 
   searchMoviesPage(searchString:string, page:number){
-    this.requestUrl = "https://api.themoviedb.org/3/search/movie?api_key=5fb6c0b63b9b1121750e3d973f52d8a4&query="+searchString;//aggiungi pagina
+    this.requestUrl = "https://api.themoviedb.org/3/search/movie?api_key=5fb6c0b63b9b1121750e3d973f52d8a4&query="+searchString+"&page="+page;//aggiungi pagina
     console.log("url request: "+this.requestUrl);
     return this.http.get<Movie[]>(this.requestUrl)
   }
