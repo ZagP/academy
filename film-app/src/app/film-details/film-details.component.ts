@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from 'src/model/movie';
 import { MovieService } from '../movie.service';
+import { Video } from 'src/model/video';
 
 @Component({
   selector: 'app-film-details',
@@ -11,25 +12,35 @@ import { MovieService } from '../movie.service';
 export class FilmDetailsComponent implements OnInit {
 
   private movie: Movie;
-  @Input() id:number=384018;
-  
+  @Input() id: number = 384018;
+
   constructor(private movieService: MovieService) {
   }
 
   ngOnInit() {
-    this.getMovieDetails();
-  }
-
-  getMovieDetails(){
     this.movieService.getMovieDetails(this.id).subscribe(
-      (result:Movie)=>{
-        this.movie=result;
+      (result: Movie) => {
+        this.movie = result;
       },
-      (error)=>{
-        console.error("Error",error);
+      (error) => {
+        console.error("Error", error);
         alert('error');
       }
     );
+
+
+    this.movieService.getTrailerMovie(this.id).subscribe(
+      (result: Video[]) => {
+        this.movie.videoArray = result;
+        console.log("" + result[0].key);
+      },
+      (error) => {
+        console.error("Error", error);
+        alert('error');
+      }
+    );
+
+
   }
 
 }

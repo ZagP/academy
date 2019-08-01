@@ -25,7 +25,7 @@ export class SearchMovieComponent implements OnInit {
     this.searchService.searchMovies(this.searchString).subscribe(
       (result:Movie[])=>{
         this.moviesArray=result;
-        this.pagesQnt = this.moviesArray.total_pages;
+        //this.pagesQnt = this.moviesArray.total_pages;
         console.log("total-pages: "+this.pagesQnt);
         console.log("result: ",result);
         console.log("moviesArray: ",this.moviesArray);

@@ -1,13 +1,22 @@
-<div class="card">
-  <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="..." class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">{{movie.title}} ({{movie.release_date}})</h5>
-    <h6><p>Story</p></h6>
-    <p class="card-text">{{movie.overview}}</p>
+<br>
+<div class="row">
+  <div class="card bg-color-cards">
+    <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="..." class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{movie.title}} ({{movie.release_date}})</h5>
+      <h6>
+        <p>Story</p>
+      </h6>
+      <p class="card-text">{{movie.overview}}</p>
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Language: {{movie.original_language}}</li>
-    <li class="list-group-item">View: {{movie.popularity}}</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
+</div>
+
+<br>
+
+<div class="row">
+  <div *ngFor="let video of movie.videoArray">
+    <iframe src="https://www.youtube.com/embed/{{video.key}}" frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 </div>
