@@ -9,7 +9,7 @@ import { Movie } from 'src/model/movie';
 export class MovieService {
   movies:Movie;
   language:string;
-  page:number;
+  //page:number;
   adult:boolean;
   region:string;
   year:string;
@@ -21,6 +21,12 @@ export class MovieService {
 
   searchMovies(searchString:string):Observable<Movie[]>{
     this.requestUrl = "https://api.themoviedb.org/3/search/movie?api_key=5fb6c0b63b9b1121750e3d973f52d8a4&query="+searchString;
+    console.log("url request: "+this.requestUrl);
+    return this.http.get<Movie[]>(this.requestUrl)
+  }
+
+  searchMoviesPage(searchString:string, page:number){
+    this.requestUrl = "https://api.themoviedb.org/3/search/movie?api_key=5fb6c0b63b9b1121750e3d973f52d8a4&query="+searchString;//aggiungi pagina
     console.log("url request: "+this.requestUrl);
     return this.http.get<Movie[]>(this.requestUrl)
   }

@@ -10,6 +10,7 @@ import { MovieService } from '../movie.service';
 export class SearchMovieComponent implements OnInit {
   moviesArray:Movie[] = [];
   @Input() searchString:string;
+  page:number;
   results:boolean = false;
   constructor(private searchService:MovieService) { }
 
@@ -21,6 +22,21 @@ export class SearchMovieComponent implements OnInit {
     console.log("searchREsults");
     console.log(this.searchString);
     this.searchService.searchMovies(this.searchString).subscribe(
+      (result:Movie[])=>{
+        this.moviesArray=result;
+        console.log("result: ",result);
+        console.log("moviesArray: ",this.moviesArray);
+      },
+      (error)=>{
+        console.error("Error",error);
+        alert('error');
+      }
+    );
+    this.results = true;
+  }
+
+  getResultsPage(){
+    this.searchService.searchMoviesPage(this.searchString, this.page).subscribe(
       (result:Movie[])=>{
         this.moviesArray=result;
         console.log("result: ",result);

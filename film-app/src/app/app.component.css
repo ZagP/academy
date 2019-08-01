@@ -1,10 +1,16 @@
-.jumbotron {
+body{
+  background: #000;
+}
+
+
+
+/*.jumbotron {
     padding-top: 3rem;
     padding-bottom: 3rem;
     margin-bottom: 0;
     background-color: #fff;
   }
-  @media (min-width: 768px) {
+  /*@media (min-width: 768px) {
     .jumbotron {
       padding-top: 6rem;
       padding-bottom: 6rem;
@@ -26,8 +32,7 @@
   footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    /*position: absolute;
-    bottom: 0;*/
+  
   }
   
   footer p {
@@ -47,4 +52,22 @@
     .bd-placeholder-img-lg {
       font-size: 3.5rem;
     }
-  }
+  }*/
+.navbar-bg{
+    background: #618985 !important;
+    height: 100px;
+}
+.card-animations{
+  transition: .3s all ease-in-out;
+  top: 0;
+  position: relative;
+  cursor: pointer !important;
+}
+
+.card-animations:hover{
+  top: -10px;
+  -webkit-box-shadow: 0 2px 22px -1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 22px -1px rgba(0, 0, 0, 0.3);
+
+}
+
