@@ -11,13 +11,17 @@ import { Video } from 'src/model/video';
 
 export class FilmDetailsComponent implements OnInit {
 
-  private movie: Movie;
+  movie: Movie;
   @Input() id: number = 384018;
 
-  constructor(private movieService: MovieService) {
-  }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
+    this.getDetails();
+    this.getTrailer();
+  }
+
+  getDetails(): void {
     this.movieService.getMovieDetails(this.id).subscribe(
       (result: Movie) => {
         this.movie = result;
@@ -28,18 +32,19 @@ export class FilmDetailsComponent implements OnInit {
       }
     );
 
+  }
 
+  getTrailer(): void {
     this.movieService.getTrailerMovie(this.id).subscribe(
-      (result: Video[]) => {
-        this.movie.videoArray = result;
-        console.log("" + result[0].key);
+      (result: Object[]) => {
+          //this.movie.trailerArray = result[1];
+          //console.log(""+this.movie.trailerArray.length);
       },
       (error) => {
         console.error("Error", error);
         alert('error');
       }
     );
-
 
   }
 

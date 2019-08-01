@@ -19,7 +19,7 @@ export class Movie {
     public production_companies: string;
     public genres: string;
     public budget: number;
-    public videoArray:Video[];
+    public trailerArray:Video[];
 
 
     //"vote_count":1,"id":484981,"video":false,"vote_average":1,"title":"String","popularity":1.4,"poster_path":"\/lESbUXiBbCOjSfSkjqz6npcvuHD.jpg","original_language":"en",
