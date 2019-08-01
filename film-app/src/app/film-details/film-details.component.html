@@ -1,32 +1,13 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-                <h1>{{movie.title}} {{movie.releaseDate}}</h1>
-        </div>
-    </div>
-<br>
-    <div class="row">
-        <div class="col-md-5">
-            <img src="https://www.smk-smptintaemas.sch.id/wp-content/uploads/2017/07/645x430-ada-lomba-film-pendek-di-peringatan-hari-museum-1505214.jpg"
-                width="200px" height="100px" alt="..." class="img-thumbnail">
-        </div>
-        <div class="col-md-7">
-            <p>Title: {{movie.title}}</p>
-            <hr>
-            <p>Date: {{movie.releaseDate}}</p>
-            <hr>
-            <p>Language: {{movie.originalLanguage}}</p>
-            <hr>
-            <p>Adult: </p>
-            <hr>
-            <p>Categories: </p>
-            <hr>
-            <p>View: {{movie.popularity}}</p>
-            <hr>
-
-        </div>
-    </div>
+<div class="card">
+  <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="..." class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{movie.title}} ({{movie.release_date}})</h5>
+    <h6><p>Story</p></h6>
+    <p class="card-text">{{movie.overview}}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Language: {{movie.original_language}}</li>
+    <li class="list-group-item">View: {{movie.popularity}}</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
 </div>
-
-<h2>Story</h2>
-<p>{{movie.overview}}</p>

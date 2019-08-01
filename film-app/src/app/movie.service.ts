@@ -25,4 +25,10 @@ export class MovieService {
     return this.http.get<Movie[]>(this.requestUrl)
   }
 
+  getMovieDetails(id:number):Observable<Movie>{
+    this.requestUrl = "https://api.themoviedb.org/3/movie/"+id+"?api_key=5fb6c0b63b9b1121750e3d973f52d8a4";
+    console.log("url request: "+this.requestUrl);
+    return this.http.get<Movie>(this.requestUrl)
+  }
+
 }
