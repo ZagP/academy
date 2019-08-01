@@ -1,6 +1,6 @@
 <div class="row">
     <!-- <div class="col-md-2"></div> -->
-    <div class="col-md-12">
+    <div class="col-md-12 main-search-bar">
         <h1>Search your movies</h1>
         <form>
             <div class="form-group">
@@ -23,17 +23,21 @@
             <div class="card-body bg-color-cards">
                 <h4 class="card-title">{{movie.title}}</h4>
                 <p class="card-text">{{movie.overview.substring(0, 80)}} ...</p>
-                <button class="btn btn-custom" >Details</button>
+                <button class="btn btn-custom">Details</button>
             </div>
         </div>
     </div>
-    <nav aria-label="Page navigation example">
+
+</div>
+<div class="row" *ngIf="results">
+    <nav>
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <li></li>
+            <li *ngFor="let num of pagesQnt" class="page-item"><a class="page-link custom-pagination" href="#">{{num}}</a></li>
+            <!-- <li class="page-item"><a class="page-link custom-pagination" href="#">1</a></li>
+            <li class="page-item"><a class="page-link custom-pagination" href="#">2</a></li>
+            <li class="page-item"><a class="page-link custom-pagination" href="#">3</a></li>
+            <li class="page-item"><a class="page-link custom-pagination" href="#">Next</a></li> -->
         </ul>
     </nav>
 </div>

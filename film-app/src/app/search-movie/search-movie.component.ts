@@ -10,6 +10,7 @@ import { MovieService } from '../movie.service';
 export class SearchMovieComponent implements OnInit {
   moviesArray:Movie[] = [];
   @Input() searchString:string;
+  pagesQnt:number;
   page:number;
   results:boolean = false;
   constructor(private searchService:MovieService) { }
@@ -24,6 +25,8 @@ export class SearchMovieComponent implements OnInit {
     this.searchService.searchMovies(this.searchString).subscribe(
       (result:Movie[])=>{
         this.moviesArray=result;
+        this.pagesQnt = this.moviesArray.total_pages;
+        console.log("total-pages: "+this.pagesQnt);
         console.log("result: ",result);
         console.log("moviesArray: ",this.moviesArray);
       },
