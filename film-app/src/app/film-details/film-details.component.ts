@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from 'src/model/movie';
 import { MovieService } from '../movie.service';
+import { ActivatedRoute } from '@angular/router';
+import { Video } from 'src/model/video';
 
 @Component({
   selector: 'app-film-details',
@@ -13,11 +15,11 @@ export class FilmDetailsComponent implements OnInit {
   movie: Movie;
   @Input() id: number;
   private url:string='https://www.youtube.com/embed/'; 
-  constructor(private movieService: MovieService) {
-  }
+
+  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.id=384018;
+    this.route.params.subscribe((params) => this.id = params.id);
     this.getDetails();
     this.getTrailer();
   }
