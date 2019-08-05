@@ -1,5 +1,6 @@
 <div class="row">
     <!-- <div class="col-md-2"></div> -->
+
     <div class="col-md-12 main-search-bar">
         <h1>Search your movies</h1>
         <form>
@@ -17,8 +18,8 @@
 </div>
 <div class="row" *ngIf="results">
 
-    <div class="col-md-4 space" *ngFor="let movie of moviesArray.results">
-        <div class="card card-animations" style="width: 18rem;" (click)="getMovieDetails(movie.id)">
+    <div class="col-md-4 space" *ngFor="let movie of moviesArray.results" [routerLink]="['/details', movie.id]" routerLinkActive="active">
+        <div class="card card-animations" style="width: 18rem;">
             <img class="card-img-top" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="Card image cap">
             <div class="card-body bg-color-cards">
                 <h4 class="card-title">{{movie.title}}</h4>
@@ -32,7 +33,9 @@
 <div class="row" *ngIf="results">
     <nav>
         <ul class="pagination">
-            <li *ngFor="let num of arrayOne(moviesArray.total_pages);let i = index;" class="page-item" (click)="getResultsPage(i+1)"><a class="page-link custom-pagination" [ngClass]="{'page-selected': page===(i+1)}" >{{i+1}}</a></li>
+            <li *ngFor="let num of arrayOne(moviesArray.total_pages);let i = index;" class="page-item"
+                (click)="getResultsPage(i+1)"><a class="page-link custom-pagination"
+                    [ngClass]="{'page-selected': page===(i+1)}">{{i+1}}</a></li>
         </ul>
     </nav>
 </div>

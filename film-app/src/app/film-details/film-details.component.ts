@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from 'src/model/movie';
 import { MovieService } from '../movie.service';
 import { Video } from 'src/model/video';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-film-details',
@@ -14,9 +15,11 @@ export class FilmDetailsComponent implements OnInit {
   movie: Movie;
   @Input() id: number = 384018;
 
-  constructor(private movieService: MovieService) { }
+
+  constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params) => this.id = params.id);
     this.getDetails();
     this.getTrailer();
   }
