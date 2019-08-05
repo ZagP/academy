@@ -11,7 +11,7 @@ export class Movie {
     public original_language: string;
     public original_title: string;
     public genre_ids: Number[] = [];
-    public backdrop_path: string;
+    public backdrop_path: string=null;
     public adult: boolean;
     public overview: string;
     public release_date: string;
@@ -19,7 +19,7 @@ export class Movie {
     public production_companies: string;
     public genres: string;
     public budget: number;
-    public trailerArray:Video[];
+    public trailerArray:Video[]=null;
 
 
     //"vote_count":1,"id":484981,"video":false,"vote_average":1,"title":"String","popularity":1.4,"poster_path":"\/lESbUXiBbCOjSfSkjqz6npcvuHD.jpg","original_language":"en",

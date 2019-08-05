@@ -1,7 +1,7 @@
 export class Video {
 
-    public key: string;
-    public size: number;
+    key: string;
+    size: number;
     id: string;
     iso_639_1: string;
     iso_3166_1: string;
@@ -9,7 +9,7 @@ export class Video {
     site: string;
     type: string;
     
-    constructor(id: string, iso_639_1: string, iso_3166_1: string, site: string, name: string, key: string, size: number,type:string) {
+    constructor(id: string, iso_639_1: string, iso_3166_1: string, site: string, name: string, key: string, size: number, type:string) {
         this.key = key;
         this.size = size;
         this.id=id;
@@ -19,4 +19,6 @@ export class Video {
         this.name=name;
         this.type=type;
     }
+
+  
 }

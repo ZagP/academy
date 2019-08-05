@@ -1,22 +1,39 @@
 <br>
-<div class="row">
-  <div class="card bg-color-cards">
-    <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" alt="..." class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">{{movie.title}} ({{movie.release_date}})</h5>
-      <h6>
-        <p>Story</p>
-      </h6>
-      <p class="card-text">{{movie.overview}}</p>
+<div class="container" id="container">
+  <div class="row">
+    <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}" class="card-img-top">
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <h4 id="title">{{movie.title}} ({{movie.release_date}})</h4>
     </div>
   </div>
-</div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <h5 id="story">Story</h5>
+      <p id="overview">{{movie.overview}}</p>
+    </div>
+  </div>
 
-<br>
+  <br>
+  <div class="row">
+    <div class="col-md-8">
+      <iframe width="560" height="315" [src]="url |safe" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
-<div class="row">
-  <div *ngFor="let v of movie.trailerArray">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{v.key}}" frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="col-md-4" id="details">
+      <h6>Details:</h6>
+      <p>Genere: {{movie.vote_average}}</p>
+      <p>Anno: {{movie.vote_average}}</p>
+      <p>Durata: {{movie.vote_average}}</p>
+      <p>Scrittore: {{movie.vote_average}}</p>
+      <p>Regia: {{movie.vote_average}}</p>
+      <p>Attori: {{movie.vote_average}}</p>
+      <p>Views: {{movie.popularity}}</p>
+    </div>
+
   </div>
 </div>
