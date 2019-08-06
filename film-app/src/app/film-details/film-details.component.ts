@@ -19,6 +19,7 @@ export class FilmDetailsComponent implements OnInit {
   private sizeDirector:boolean=false;
   private sizeActor:boolean=false;
   private sizeCompany:boolean=false;
+  private sizeKind:boolean=false;
   constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -34,6 +35,9 @@ export class FilmDetailsComponent implements OnInit {
         this.movie = result;
         if(this.movie.production_companies.length!=0){
           this.sizeCompany= !this.sizeCompany;
+        }
+        if(this.movie.genres.length!=0){
+          this.sizeKind= !this.sizeKind;
         }
       },
       (error) => {
@@ -60,7 +64,7 @@ export class FilmDetailsComponent implements OnInit {
 
   getCredit():void{
     this.movieService.getCreditsMovie(this.id).subscribe(
-      (result: any[]) => {
+      (result: Object[]) => {
         this.movie.cast = result['cast'];
         this.movie.crew = result['crew'];
         

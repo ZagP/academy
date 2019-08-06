@@ -24,6 +24,7 @@
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
+    margin-block-end: 5px;
 }
 
 .video-container iframe, .video-container object, .video-container embed {

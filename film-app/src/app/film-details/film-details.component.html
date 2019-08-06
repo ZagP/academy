@@ -28,9 +28,11 @@
     </div>
     <div class="col-md-5" id="details">
       <h6 id="details-title">Details</h6>
-      Kind: <ul *ngFor="let gen of movie.genres">
-        <li>{{gen.name}}</li>
-      </ul>
+      <div *ngIf="sizeKind">
+        Kind: <ul *ngFor="let gen of movie.genres">
+          <li>{{gen.name}}</li>
+        </ul>
+      </div>
 
       <div *ngIf="sizeCompany">
         Production Companies: <ul *ngFor="let company of movie.production_companies">
@@ -58,7 +60,8 @@
       <div *ngIf="sizeActor">
         Actors:
         <ul>
-          <li *ngFor="let credit of movie.cast">{{credit.name}} <span *ngIf="credit.character!=''">({{credit.character}})</span></li>
+          <li *ngFor="let credit of movie.cast">{{credit.name}} <span
+              *ngIf="credit.character!=''">({{credit.character}})</span></li>
         </ul>
       </div>
       <p>Average: {{movie.vote_average}} &nbsp; Views: {{movie.popularity}}</p>
