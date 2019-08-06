@@ -15,7 +15,10 @@ export class FilmDetailsComponent implements OnInit {
   movie: Movie;
   @Input() id: number;
   private url:string='https://www.youtube.com/embed/'; 
-
+  private sizeScreenplay:boolean=false;
+  private sizeDirector:boolean=false;
+  private sizeActor:boolean=false;
+  private sizeCompany:boolean=false;
   constructor(private movieService: MovieService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -29,6 +32,9 @@ export class FilmDetailsComponent implements OnInit {
     this.movieService.getMovieDetails(this.id).subscribe(
       (result: Movie) => {
         this.movie = result;
+        if(this.movie.production_companies.length!=0){
+          this.sizeCompany= !this.sizeCompany;
+        }
       },
       (error) => {
         console.error("Error", error);
@@ -54,9 +60,21 @@ export class FilmDetailsComponent implements OnInit {
 
   getCredit():void{
     this.movieService.getCreditsMovie(this.id).subscribe(
-      (result: Object[]) => {
-        this.movie.credits= result['cast'];
-        this.movie.crew= result['crew'];
+      (result: any[]) => {
+        this.movie.cast = result['cast'];
+        this.movie.crew = result['crew'];
+        
+        if(this.movie.cast.length!=0){
+          this.sizeActor= !this.sizeActor;
+        }
+
+        this.movie.crew.forEach(element => {
+          if(element.job=='Director'){
+            this.sizeDirector= true;
+          } else if( element.job=='Screenplay'){
+            this.sizeScreenplay= true;
+          }
+        });
       },
       (error) => {
         console.error("Error", error);

@@ -32,22 +32,35 @@
         <li>{{gen.name}}</li>
       </ul>
 
-      Production Companies: <ul *ngFor="let company of movie.production_companies">
-        <li>{{company.name}}</li>
-      </ul>
-
-      Director:
-      <div *ngFor="let director of movie.crew">
-        <ul *ngIf="director.job=='Director'">
-          <li>{{director.name}}</li>
+      <div *ngIf="sizeCompany">
+        Production Companies: <ul *ngFor="let company of movie.production_companies">
+          <li>{{company.name}}</li>
         </ul>
       </div>
 
-      Actors:
-      <ul>
-        <li *ngFor="let credit of movie.credits">{{credit.name}}</li>
-      </ul>
+      <div *ngIf="sizeScreenplay">
+        Screenplay:
+        <div *ngFor="let screenplay of movie.crew">
+          <ul *ngIf="screenplay.job=='Screenplay'">
+            <li>{{screenplay.name}}</li>
+          </ul>
+        </div>
+      </div>
 
+      <div *ngIf="sizeDirector">
+        Director:
+        <div *ngFor="let director of movie.crew">
+          <ul *ngIf="director.job=='Director'">
+            <li>{{director.name}}</li>
+          </ul>
+        </div>
+      </div>
+      <div *ngIf="sizeActor">
+        Actors:
+        <ul>
+          <li *ngFor="let credit of movie.cast">{{credit.name}} <span *ngIf="credit.character!=''">({{credit.character}})</span></li>
+        </ul>
+      </div>
       <p>Average: {{movie.vote_average}} &nbsp; Views: {{movie.popularity}}</p>
     </div>
 
