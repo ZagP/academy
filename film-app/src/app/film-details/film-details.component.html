@@ -40,20 +40,20 @@
         </ul>
       </div>
 
-      <div *ngIf="sizeScreenplay">
+      <div *ngIf="screenplayArray.length!=0">
         Screenplay:
-        <div *ngFor="let screenplay of movie.crew">
-          <ul *ngIf="screenplay.job=='Screenplay'">
-            <li>{{screenplay.name}}</li>
+        <div *ngFor="let s of screenplayArray">
+          <ul>
+            <li>{{s}}</li>
           </ul>
         </div>
       </div>
 
-      <div *ngIf="sizeDirector">
+      <div *ngIf="directorArray.length!=0">
         Director:
-        <div *ngFor="let director of movie.crew">
-          <ul *ngIf="director.job=='Director'">
-            <li>{{director.name}}</li>
+        <div *ngFor="let d of directorArray">
+          <ul>
+            <li>{{d}}</li>
           </ul>
         </div>
       </div>

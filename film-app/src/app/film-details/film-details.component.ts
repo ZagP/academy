@@ -15,8 +15,8 @@ export class FilmDetailsComponent implements OnInit {
   movie: Movie;
   @Input() id: number;
   private url:string='https://www.youtube.com/embed/'; 
-  private sizeScreenplay:boolean=false;
-  private sizeDirector:boolean=false;
+  private screenplayArray:Array<string>=[];
+  private directorArray:Array<string>=[];
   private sizeActor:boolean=false;
   private sizeCompany:boolean=false;
   private sizeKind:boolean=false;
@@ -74,9 +74,9 @@ export class FilmDetailsComponent implements OnInit {
 
         this.movie.crew.forEach(element => {
           if(element.job=='Director'){
-            this.sizeDirector= true;
+            this.directorArray.push(element.name);
           } else if( element.job=='Screenplay'){
-            this.sizeScreenplay= true;
+            this.screenplayArray.push(element.name);
           }
         });
       },
