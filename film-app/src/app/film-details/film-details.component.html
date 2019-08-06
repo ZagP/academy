@@ -16,23 +16,39 @@
       <p id="overview">{{movie.overview}}</p>
     </div>
   </div>
-
-  <br>
+  <hr color="black">
   <div class="row">
-    <div class="col-md-8">
-      <iframe width="560" height="315" [src]="url |safe" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="col-md-7">
+      <h6 id="details-title">Trailer</h6>
+      <div class="video-container">
+        <iframe width="560" height="315" [src]="url |safe" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen
+          mozallowfullscreenallowfullscreen></iframe>
+      </div>
     </div>
+    <div class="col-md-5" id="details">
+      <h6 id="details-title">Details</h6>
+      Kind: <ul *ngFor="let gen of movie.genres">
+        <li>{{gen.name}}</li>
+      </ul>
 
-    <div class="col-md-4" id="details">
-      <h6>Details:</h6>
-      <p>Genere: {{movie.vote_average}}</p>
-      <p>Anno: {{movie.vote_average}}</p>
-      <p>Durata: {{movie.vote_average}}</p>
-      <p>Scrittore: {{movie.vote_average}}</p>
-      <p>Regia: {{movie.vote_average}}</p>
-      <p>Attori: {{movie.vote_average}}</p>
-      <p>Views: {{movie.popularity}}</p>
+      Production Companies: <ul *ngFor="let company of movie.production_companies">
+        <li>{{company.name}}</li>
+      </ul>
+
+      Director:
+      <div *ngFor="let director of movie.crew">
+        <ul *ngIf="director.job=='Director'">
+          <li>{{director.name}}</li>
+        </ul>
+      </div>
+
+      Actors:
+      <ul>
+        <li *ngFor="let credit of movie.credits">{{credit.name}}</li>
+      </ul>
+
+      <p>Average: {{movie.vote_average}} &nbsp; Views: {{movie.popularity}}</p>
     </div>
 
   </div>

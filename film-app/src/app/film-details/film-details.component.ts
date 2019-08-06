@@ -22,6 +22,7 @@ export class FilmDetailsComponent implements OnInit {
     this.route.params.subscribe((params) => this.id = params.id);
     this.getDetails();
     this.getTrailer();
+    this.getCredit();
   }
 
   getDetails(): void {
@@ -49,6 +50,19 @@ export class FilmDetailsComponent implements OnInit {
       }
     );
     
+  }
+
+  getCredit():void{
+    this.movieService.getCreditsMovie(this.id).subscribe(
+      (result: Object[]) => {
+        this.movie.credits= result['cast'];
+        this.movie.crew= result['crew'];
+      },
+      (error) => {
+        console.error("Error", error);
+        alert('error');
+      }
+    );
   }
 
 }

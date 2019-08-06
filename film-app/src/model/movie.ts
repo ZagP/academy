@@ -3,6 +3,7 @@ import { Video } from './video';
 export class Movie {
 
     public vote_count: number;
+    public credits:Object[]=[];
     public id: number;
     public vote_average: number;
     public title: string;
@@ -16,18 +17,16 @@ export class Movie {
     public overview: string;
     public release_date: string;
     public total_pages:number;
-    public production_companies: string;
-    public genres: string;
+    public production_companies: Object[]=[];
+    public genres: Object[]=[];
     public budget: number;
     public trailerArray:Video[]=null;
+    public crew: Object[];
 
-
-    //"vote_count":1,"id":484981,"video":false,"vote_average":1,"title":"String","popularity":1.4,"poster_path":"\/lESbUXiBbCOjSfSkjqz6npcvuHD.jpg","original_language":"en",
-    //"original_title":"String","genre_ids":[18],
-    //"backdrop_path":null,"adult":false,"overview":"A young man is guided through his life by a long piece of string in this symbolic short film.","release_date":"2017-08-30"
-
-    constructor(production_companies: string, genres: string, budget: number, vote_count: number, id: number, vote_average: number, title: string, popularity: string,
+    constructor(crew:Object[],credits:Object[],production_companies: Object[], genres: string[], budget: number, vote_count: number, id: number, vote_average: number, title: string, popularity: string,
         poster_path: string, original_language: string, original_title: string, genre_ids: Number[], backdrop_path: string, adult: boolean, overview: string, release_date: string) {
+        this.crew=crew;
+        this.credits=credits;
         this.production_companies = production_companies;
         this.genres = genres;
         this.budget = budget;

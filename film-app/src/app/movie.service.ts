@@ -36,6 +36,12 @@ export class MovieService {
     return this.http.get<Object>(this.requestUrl);
   }
 
+  getCreditsMovie(id:number):Observable<Object[]> {
+    this.requestUrl = "https://api.themoviedb.org/3/movie/" + id + "/credits?api_key=5fb6c0b63b9b1121750e3d973f52d8a4";
+    console.log("url request: " + this.requestUrl);
+    return this.http.get<Object[]>(this.requestUrl);
+  }
+
   
 }
 
