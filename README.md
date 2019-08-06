@@ -62,8 +62,8 @@ ng serve
 
 ## Authors
 
-* **Zagaria Giuseppe** - *Initial work* - [ZagP](https://github.com/ZagP)
+* **Zagaria Giuseppe** - [ZagP](https://github.com/ZagP)
 
-* **Tota Stefano** - *Initial work* - [Steffo366](https://github.com/Steffo366)
+* **Tota Stefano** - [Steffo366](https://github.com/Steffo366)
 
 
