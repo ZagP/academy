@@ -41,8 +41,9 @@ Download repository with this code in a terminal/console:
 git clone https://github.com/ZagP/academy
 ```
 
+Go to the academy directory with your terminal
 
-Next step, you need to go in the directory FilmApp and next install FilmApp with the following command:
+Next step, you need to go in the FilmApp directory and next install FilmApp with the following command:
 
 
 ```
